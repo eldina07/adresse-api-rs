@@ -2,6 +2,8 @@ use reqwest::blocking;
 use serde::{Serialize, Deserialize};
 use serde_json::{Result};
 
+const API_URL_SEARCH : &'static str = "https://api-adresse.data.gouv.fr/search/?q=";
+
 #[derive(Serialize, Deserialize)]
 struct AddressResult {
     r#type: String,
@@ -48,7 +50,7 @@ struct Properties {
 }
 
 fn get_address_info(search: &str) -> Result<AddressResult>  {
-    let url = format!("https://api-adresse.data.gouv.fr/search/?q={}", search);
+    let url = format!("{}{}", API_URL_SEARCH, search);
     let value = blocking::get(&url)
         .expect("Error when request api")
         .text()
