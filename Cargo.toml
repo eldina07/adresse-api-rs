@@ -3,7 +3,8 @@ name = "api-adresse-rs"
 version = "0.1.0"
 authors = ["Arnaud ELDIN <eldinarnaud@gmail.com>"]
 edition = "2018"
-
+license = "MIT"
+description = "A library to consume https://api.gouv.fr/les-api/base-adresse-nationale from french gouvernement"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
