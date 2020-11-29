@@ -26,50 +26,49 @@ impl fmt::Display for Error {
     }
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddressResult {
-    r#type: String,
-    version: String,
-    features: Vec<Feature>
+    pub r#type: String,
+    pub version: String,
+    pub features: Vec<Feature>
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Feature {
-    r#type: String,
-    geometry: Geometry,
-    properties: Properties
+    pub r#type: String,
+    pub geometry: Geometry,
+    pub properties: Properties
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Geometry {
-    r#type: String,
-    coordinates: Coordinates
+    pub r#type: String,
+    pub coordinates: Coordinates
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Coordinates {
     #[serde(rename = "0")]
-    lat: f64,
+    pub lat: f64,
     #[serde(rename = "1")]
-    lon: f64
+    pub lon: f64
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Properties {
-    label: String,
-    score: f64,
-    housenumber: Option<String>,
-    id: String,
-    r#type: String,
-    x: f64,
-    y: f64,
-    importance: f64,
-    name: String,
-    postcode: String,
-    citycode: String,
-    context: String,
-    street: Option<String>
-
+    pub label: String,
+    pub score: f64,
+    pub housenumber: Option<String>,
+    pub id: String,
+    pub r#type: String,
+    pub x: f64,
+    pub y: f64,
+    pub importance: f64,
+    pub name: String,
+    pub postcode: String,
+    pub citycode: String,
+    pub context: String,
+    pub street: Option<String>
 }
 
 fn get_data(url: &str) -> Result<AddressResult, Error> {
